@@ -49,7 +49,7 @@ class Mod {
     modPath = path.normalize(path.join(__dirname, ".."));
     profileFolderPath = path.normalize(path.join(__dirname, "..", "..", "..", "profiles"));
     container;
-    postAkiLoad(container) {
+    postSptLoad(container) {
         this.container = container;
     }
     postDBLoad(container) {
@@ -88,7 +88,7 @@ class Mod {
         Init.changeTraderLocales(dbLocales);
         Init.setMedics(dbTraders);
     }
-    preAkiLoad(container) {
+    preSptLoad(container) {
         const staticRouterModService = container.resolve("StaticRouterModService");
         const saveServer = container.resolve("SaveServer");
         const logger = container.resolve("WinstonLogger");
@@ -166,7 +166,7 @@ class Mod {
                     Utils.backupProfile(logger, profileId, profileFolderName, "Game Start", "");
                     return output;
                 }
-            }], "aki");
+            }], "spt");
         //profile create (after setting username)
         staticRouterModService.registerStaticRouter("On_Profile_Create_Traveler", [{
                 url: "/client/game/profile/create",
@@ -190,7 +190,7 @@ class Mod {
                     //else don't do anything with the traders
                     return output;
                 }
-            }], "aki");
+            }], "spt");
         //raid start
         staticRouterModService.registerStaticRouter("On_Raid_Start_Traveler", [{
                 url: "/client/raid/configuration",
@@ -215,7 +215,7 @@ class Mod {
                     Utils.backupProfile(logger, profileId, profileFolderName, "Raid Start ", info.location);
                     return output;
                 }
-            }], "aki");
+            }], "spt");
         //raid end
         staticRouterModService.registerStaticRouter("On_Raid_End_Traveler", [{
                 url: "/client/match/offline/end",
@@ -277,7 +277,7 @@ class Mod {
                     Utils.backupProfile(logger, profileId, profileFolderName, "Raid End ", info.exitName);
                     return output;
                 }
-            }], "aki");
+            }], "spt");
         //raid save
         staticRouterModService.registerStaticRouter("On_Game_Save_Traveler", [{
                 url: "/raid/profile/save",
@@ -301,7 +301,7 @@ class Mod {
                     }
                     return output;
                 }
-            }], "aki");
+            }], "spt");
         //logout
         staticRouterModService.registerStaticRouter("On_Logout_Traveler", [{
                 url: "/client/game/logout",
@@ -326,7 +326,7 @@ class Mod {
                     Hideout_Controller.saveToHideoutFile(profile, statuses.offraid_position, profileFolderPath);
                     return output;
                 }
-            }], "aki");
+            }], "spt");
     }
     logAllMapAndExtractNames(dbLocations) {
         const extractList = {};
