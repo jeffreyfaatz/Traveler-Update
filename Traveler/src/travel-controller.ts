@@ -3,13 +3,13 @@
 import * as fs from "fs";
 import * as config from "../config/config.json";
 import * as playerSpawnpoints from "../config/player_spawnpoints.json";
-import { ILocations } from "@spt-aki/models/spt/server/ILocations";
+import { ILocations } from "@spt/models/spt/server/ILocations";
 import { container } from "tsyringe";
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
 
 import { GetData } from "./useful-data";
-import { IGlobals, Regeneration } from "@spt-aki/models/eft/common/IGlobals";
-import { Item } from "@spt-aki/models/eft/common/tables/IItem";
+import { IGlobals, Regeneration } from "@spt/models/eft/common/IGlobals";
+import { Item } from "@spt/models/eft/common/tables/IItem";
 
 const Get_Data = new GetData()
 const logger = container.resolve<ILogger>("WinstonLogger");
