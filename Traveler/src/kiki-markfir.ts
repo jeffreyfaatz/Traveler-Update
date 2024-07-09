@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/brace-style */
 /* eslint-disable @typescript-eslint/naming-convention */
-import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
+import { IPmcData } from "@spt/models/eft/common/IPmcData";
 import * as config from "../config/config.json";
 
 import type { DependencyContainer } from "tsyringe"
-import { InRaidHelper } from "@spt-aki/helpers/InRaidHelper"
-import { InraidController } from "@spt-aki/controllers/InraidController"
-import { ISaveProgressRequestData } from "@spt-aki/models/eft/inRaid/ISaveProgressRequestData";
+import { InRaidHelper } from "@spt/helpers/InRaidHelper"
+import { InraidController } from "@spt/controllers/InraidController"
+import { ISaveProgressRequestData } from "@spt/models/eft/inRaid/ISaveProgressRequestData";
 
 export class KikiMarkFIR{
 
