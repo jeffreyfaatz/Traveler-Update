@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/brace-style */
 import * as config from "../config/config.json";
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
-import { RagFair } from "@spt-aki/models/eft/common/IGlobals";
+import { ISptProfile } from "@spt/models/eft/profile/ISptProfile";
+import { RagFair } from "@spt/models/eft/common/IGlobals";
 
 
 export class TradersController{
 
-    updateLockedTraders(offraidPos:string, profile:IAkiProfile, globalsRagfair:RagFair):void{
+    updateLockedTraders(offraidPos:string, profile:ISptProfile, globalsRagfair:RagFair):void{
         
         const profileTraders = profile.characters.pmc.TradersInfo
         const configTraders = config.trader_config
@@ -57,7 +57,7 @@ export class TradersController{
         }
     }
 
-    unlockAllTraders(profile:IAkiProfile):void{
+    unlockAllTraders(profile:ISptProfile):void{
 
         //make dis unlock le traders
 
