@@ -2,10 +2,10 @@
 /* eslint-disable @typescript-eslint/brace-style */
 import * as fs from "fs";
 import * as config from "../config/config.json";
-import { JsonUtil } from "@spt-aki/utils/JsonUtil";
-import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
-import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { JsonUtil } from "@spt/utils/JsonUtil";
+import { ITemplateItem } from "@spt/models/eft/common/tables/ITemplateItem";
+import { ISptProfile } from "@spt/models/eft/profile/ISptProfile";
+import { ItemHelper } from "@spt/helpers/ItemHelper";
 import { GetData } from "./useful-data";
 import { HideoutController } from "./hideout-controller";
 
@@ -16,7 +16,7 @@ export class StashController{
 
     
 
-    setStashSize(profile:IAkiProfile, profileFolderPath:string, offraidPos:string): void{
+    setStashSize(profile:ISptProfile, profileFolderPath:string, offraidPos:string): void{
 
         const stashesOrderedBySize = Get_Data.getStashIDsBySize()
         const profileInventory = profile.characters.pmc.Inventory
@@ -45,7 +45,7 @@ export class StashController{
         return true
     }
 
-    removeStashSizeBonusesFromProfile(profile: IAkiProfile):void{
+    removeStashSizeBonusesFromProfile(profile: ISptProfile):void{
         //this may be needed in profiles created prior to Traveler install
         for (let i = profile.characters.pmc.Bonuses.length; i > 0; i--){
             if (profile.characters.pmc.Bonuses[i-1].type === "StashSize"){
