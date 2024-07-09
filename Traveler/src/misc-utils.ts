@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/brace-style */
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
-import { Inventory } from "@spt-aki/models/eft/common/tables/IBotBase";
-import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
-import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { ISptProfile } from "@spt/models/eft/profile/ISptProfile";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
+import { Inventory } from "@spt/models/eft/common/tables/IBotBase";
+import { ITemplateItem } from "@spt/models/eft/common/tables/ITemplateItem";
+import { ItemHelper } from "@spt/helpers/ItemHelper";
 import * as path from "path";
 import * as fse from "fs-extra";
 import * as fs from "fs";
@@ -24,7 +24,7 @@ export class MiscUtils{
     modPath: string = path.normalize(path.join(__dirname, ".."));
     profileFolderPath: string = path.normalize(path.join(__dirname, "..", "..", "..", "profiles"));
 
-    uninstallTraveler(profile:IAkiProfile, profileFolderPath:string, statusesPath:string, dbItems:Record<string, ITemplateItem>, Item_Helper:ItemHelper):void{
+    uninstallTraveler(profile:ISptProfile, profileFolderPath:string, statusesPath:string, dbItems:Record<string, ITemplateItem>, Item_Helper:ItemHelper):void{
 
         const profilePMCElement = profile.characters.pmc
         const profileInventory = profilePMCElement.Inventory
