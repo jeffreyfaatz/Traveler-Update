@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/brace-style */
 import { DependencyContainer } from "tsyringe";
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
-import type { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
-import { IPostAkiLoadMod } from "@spt-aki/models/external/IPostAkiLoadMod";
-import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
-import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
-import { ConfigServer } from "@spt-aki/servers/ConfigServer";
-import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService";
-import {SaveServer} from "@spt-aki/servers/SaveServer";
-import { JsonUtil } from "@spt-aki/utils/JsonUtil";
-import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
+import type { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod";
+import { IPostSptLoadMod } from "@spt/models/external/IPostSptLoadMod";
+import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod";
+import { DatabaseServer } from "@spt/servers/DatabaseServer";
+import { ConfigServer } from "@spt/servers/ConfigServer";
+import type {StaticRouterModService} from "@spt/services/mod/staticRouter/StaticRouterModService";
+import {SaveServer} from "@spt/servers/SaveServer";
+import { JsonUtil } from "@spt/utils/JsonUtil";
+import { ItemHelper } from "@spt/helpers/ItemHelper";
 
 import * as path from "path";
 import * as fs from "fs";
@@ -25,11 +25,11 @@ import { CustomItems } from "./custom-items";
 import { MiscUtils } from "./misc-utils";
 import { HideoutController } from "./hideout-controller";
 import { KikiMarkFIR } from "./kiki-markfir";
-import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
-import { IRagfairConfig } from "@spt-aki/models/spt/config/IRagfairConfig";
-import { ITraderConfig } from "@spt-aki/models/spt/config/ITraderConfig";
-import { ILocationBase } from "@spt-aki/models/eft/common/ILocationBase";
-import { ILocations } from "@spt-aki/models/spt/server/ILocations";
+import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
+import { IRagfairConfig } from "@spt/models/spt/config/IRagfairConfig";
+import { ITraderConfig } from "@spt/models/spt/config/ITraderConfig";
+import { ILocationBase } from "@spt/models/eft/common/ILocationBase";
+import { ILocations } from "@spt/models/spt/server/ILocations";
 
 const Stash_Controller = new StashController()
 const File_Constructors = new FileConstructors()
@@ -41,7 +41,7 @@ const Utils = new MiscUtils()
 const Mark_FIR = new KikiMarkFIR()
 const Init = new InitUtils()
 
-class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
+class Mod implements IPreSptLoadMod, IPostSptLoadMod, IPostDBLoadMod
 {
     modPath: string = path.normalize(path.join(__dirname, ".."));
     profileFolderPath: string = path.normalize(path.join(__dirname, "..", "..", "..", "profiles"));
@@ -89,7 +89,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
         Init.setMedics(dbTraders)
     }
 
-    public preAkiLoad(container: DependencyContainer): void {
+    public preSptLoad(container: DependencyContainer): void {
         const staticRouterModService = container.resolve<StaticRouterModService>("StaticRouterModService")
         const saveServer = container.resolve<SaveServer>("SaveServer")
         const logger = container.resolve<ILogger>("WinstonLogger")
@@ -179,7 +179,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     return output
                 }
             }],
-            "aki"
+            "spt"
         );
 
         //profile create (after setting username)
@@ -210,7 +210,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     return output
                 }
             }],
-            "aki"
+            "spt"
         );
 
         //raid start
@@ -241,7 +241,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     return output
                 }
             }],
-            "aki"
+            "spt"
         );
         
         //raid end
@@ -310,7 +310,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     return output
                 }
             }],
-            "aki"
+            "spt"
         );
 
         //raid save
@@ -339,7 +339,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     return output
                 }
             }],
-            "aki"
+            "spt"
         );
         
         //logout
@@ -369,7 +369,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     return output
                 }
             }],
-            "aki"
+            "spt"
         );
     }
 
