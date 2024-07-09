@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/brace-style */
-import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
-import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import { IDatabaseTables } from "@spt/models/spt/server/IDatabaseTables";
+import { JsonUtil } from "@spt/utils/JsonUtil";
 
 import { GetData } from "./useful-data";
 import * as config from "../config/config.json";
