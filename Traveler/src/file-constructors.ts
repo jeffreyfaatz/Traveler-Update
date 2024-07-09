@@ -3,7 +3,7 @@
 import * as path from "path";
 import * as fs from "fs";
 import * as config from "../config/config.json";
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
+import { ISptProfile } from "@spt/models/eft/profile/ISptProfile";
 
 import { GetData } from "./useful-data";
 
@@ -15,7 +15,7 @@ export class FileConstructors{
     modPath: string = path.normalize(path.join(__dirname, ".."));
 
 
-    profileFolderConstructor(profileFolderName:string, profile:IAkiProfile): void{
+    profileFolderConstructor(profileFolderName:string, profile:ISptProfile): void{
 
         //set profile folder path and create it if it doesn't exist
         const profileFolderPath = `${this.modPath}/profiles/${profileFolderName}`
