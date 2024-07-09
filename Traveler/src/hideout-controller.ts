@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/brace-style */
 import * as fs from "fs";
 import * as config from "../config/config.json";
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
-import { Hideout } from "@spt-aki/models/eft/common/tables/IBotBase";
-import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
+import { ISptProfile } from "@spt/models/eft/profile/ISptProfile";
+import { Hideout } from "@spt/models/eft/common/tables/IBotBase";
+import { IDatabaseTables } from "@spt/models/spt/server/IDatabaseTables";
 
 import { GetData } from "./useful-data";
 
@@ -64,7 +64,7 @@ export class HideoutController{
         }
     }
 
-    saveToHideoutFile(profile:IAkiProfile, offraidPos:string, profileFolderPath:string): void{
+    saveToHideoutFile(profile:ISptProfile, offraidPos:string, profileFolderPath:string): void{
 
         const hideoutFilePath = this.getHideoutNameOrPathFromOffraidPos(offraidPos, profileFolderPath, "path")
 
@@ -87,7 +87,7 @@ export class HideoutController{
         
     }
 
-    loadHideoutFile(profile:IAkiProfile, offraidPos:string, profileFolderPath:string):Hideout{
+    loadHideoutFile(profile:ISptProfile, offraidPos:string, profileFolderPath:string):Hideout{
 
         const hideoutFilePath = this.getHideoutNameOrPathFromOffraidPos(offraidPos, profileFolderPath, "path")
 
