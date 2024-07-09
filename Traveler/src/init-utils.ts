@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/brace-style */
-import { IQuest } from "@spt-aki/models/eft/common/tables/IQuest";
-import { IGlobals } from "@spt-aki/models/eft/common/IGlobals";
-import { IHideoutArea } from "@spt-aki/models/eft/hideout/IHideoutArea";
-import { ITrader } from "@spt-aki/models/eft/common/tables/ITrader";
+import { IQuest } from "@spt/models/eft/common/tables/IQuest";
+import { IGlobals } from "@spt/models/eft/common/IGlobals";
+import { IHideoutArea } from "@spt/models/eft/hideout/IHideoutArea";
+import { ITrader } from "@spt/models/eft/common/tables/ITrader";
 
 import * as config from "../config/config.json";
 import * as exfilTooltips from "../config/exfil_tooltips.json";
